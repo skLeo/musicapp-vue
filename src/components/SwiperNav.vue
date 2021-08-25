@@ -14,7 +14,7 @@
 import { onMounted, ref } from 'vue';
 import { Swiper, SwiperSlide } from "swiper/vue";
 import SwiperCore, { Autoplay, Pagination } from "swiper";
-import {getBanner} from '@/https';
+import {GET_BANNER} from '@/axios';
 
 import "swiper/swiper.less";
 import 'swiper/components/pagination/pagination.less';
@@ -31,11 +31,9 @@ export default {
         const imgs = ref([]);
         
         onMounted(async () => {
-            const {data} = await getBanner(2);
+            const {banners} = await GET_BANNER(2);
 
-            if (data.code === 200) {
-                imgs.value = data.banners;
-            }
+            imgs.value = banners;
         });
 
         return {imgs};
