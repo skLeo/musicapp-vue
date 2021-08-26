@@ -1,5 +1,5 @@
 <template>
-	<svg class="icon" aria-hidden="true">
+	<svg v-bind="$attrs" class="icon" aria-hidden="true">
 		<use :xlink:href="`#${iconName}`"></use>
 	</svg>
 </template>
@@ -16,9 +16,11 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
 .icon {
-	width: 0.45rem;
-	height: 0.45rem;
-	vertical-align: -0.55em;
+	width: 1em;
+	height: 1em;
+	vertical-align: -0.15em;
+	overflow: hidden;
+	fill: currentColor;
 	overflow: hidden;
 }
 </style>
