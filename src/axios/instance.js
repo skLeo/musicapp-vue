@@ -5,6 +5,7 @@ export const AxiosInstance = axios.create({
 	timeout: 5000,
 	headers: {
 		"Content-Type": "application/x-www-form-urlencoded",
+		"X-Requested-With": "XMLHttpRequest",
 	},
 });
 
@@ -19,7 +20,11 @@ AxiosInstance.interceptors.request.use(
 
 AxiosInstance.interceptors.response.use(
 	(response) => {
-		return response;
+		if (response.status === 200) {
+			return Promise.resolve(response.data)
+		} else {
+			return Promise.reject(response)
+		}
 	},
 	(error) => {
 		return Promise.reject(error);
