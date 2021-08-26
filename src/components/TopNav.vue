@@ -16,13 +16,13 @@
 </template>
 
 <script>
-import IconFont from '@/components/IconFont.vue';
+import IconFont from "@/components/IconFont.vue";
 
 export default {
 	name: "TopNav",
-    components: {
-        IconFont
-    }
+	components: {
+		IconFont,
+	},
 };
 </script>
 
