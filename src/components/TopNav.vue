@@ -19,10 +19,10 @@
 import IconFont from "@/components/IconFont.vue";
 
 export default {
-  name: "TopNav",
-  components: {
-    IconFont,
-  },
+	name: "TopNav",
+	components: {
+		IconFont,
+	},
 };
 </script>
 

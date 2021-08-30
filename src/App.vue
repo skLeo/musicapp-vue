@@ -10,13 +10,13 @@
 }
 
 #app {
-  font-family: "Microsoft Yahei", Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  width: 7.5rem;
-  padding: 0 0.2rem;
-  margin: 0 auto;
+	font-family: "Microsoft Yahei", Avenir, Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-align: center;
+	color: #2c3e50;
+	width: 7.5rem;
+	padding: 0 0.2rem;
+	margin: 0 auto;
 }
 </style>

@@ -15,10 +15,16 @@ yarn serve
 yarn build
 ```
 
-### Lints and fixes files
+### Use Netesae Music Api
 ```
-yarn lint
+cd Desktop
+git clone https://github.com/Binaryify/NeteaseCloudMusicApi
+cd NeteaseCloudMusicApi
+npm install
+node app.js
 ```
+[Detail Api Documents](https://neteasecloudmusicapi.vercel.app/#/?id=neteasecloudmusicapi)
+
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
