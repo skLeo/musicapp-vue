@@ -5,5 +5,9 @@ export const GET_BANNER = (type, callback) => {
 };
 
 export const GET_GRAGON_BALL = (param, callback) => {
-	return Get("/homepage/dragon/ball", param, callback);
+	return Get("/homepage/dragon/ball", {param}, callback);
 };
+
+export const GET_PERSONALIZED = (limit, callback) => {
+	return Get('/personalized', {limit}, callback);
+}

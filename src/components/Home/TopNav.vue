@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import IconFont from "@/components/IconFont.vue";
+import IconFont from "@/components/Home/IconFont.vue";
 
 export default {
 	name: "TopNav",

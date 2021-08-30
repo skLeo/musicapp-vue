@@ -11,6 +11,7 @@
 						class="menuImg"
 						:style="`background-image: url(${iconUrl})`"
 					></div>
+					<span class="currentDate" v-if="id === -1">{{ currentDay }}</span>
 				</div>
 				<span class="list-label">{{ name }}</span>
 			</div>
@@ -29,17 +30,17 @@ export default {
 	},
 	setup() {
 		const icons = ref([]);
+		const currentDay = ref(new Date().getDate());
 
 		const updateIcons = ({ data }) => {
 			icons.value = data;
 		};
 
 		onMounted(async () => {
-			console.log(1111);
 			await GET_GRAGON_BALL("", updateIcons);
 		});
 
-		return { icons };
+		return { icons, currentDay };
 	},
 };
 </script>
@@ -76,11 +77,24 @@ export default {
 				border-radius: 50%;
 				overflow: hidden;
 				background-color: pink;
+				position: relative;
 				.menuImg {
 					height: 100%;
 					background-size: cover;
 					filter: drop-shadow(1rem 0px 0px red);
 					transform: translateX(-1rem);
+				}
+				.currentDate {
+					position: absolute;
+					font-size: 0.24rem;
+					color: #fff;
+					font-weight: 700;
+					width: 100%;
+					height: 100%;
+					text-align: center;
+					line-height: 1.15rem;
+					top: 0;
+					left: 0;
 				}
 			}
 			.list-label {

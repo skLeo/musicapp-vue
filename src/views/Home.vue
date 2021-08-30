@@ -2,13 +2,15 @@
 	<TopNav />
 	<SwiperNav />
 	<MenuNav />
+	<RecommendList />
 </template>
 
 <script>
 // @ is an alias to /src
-import TopNav from "@/components/TopNav.vue";
-import SwiperNav from "@/components/SwiperNav.vue";
-import MenuNav from "@/components/MenuNav.vue";
+import TopNav from "@/components/Home/TopNav.vue";
+import SwiperNav from "@/components/Home/SwiperNav.vue";
+import MenuNav from "@/components/Home/MenuNav.vue";
+import RecommendList from "@/components/Home/RecommendList.vue";
 
 export default {
 	name: "Home",
@@ -16,6 +18,7 @@ export default {
 		TopNav,
 		SwiperNav,
 		MenuNav,
+		RecommendList,
 	},
 	setup() {},
 };
