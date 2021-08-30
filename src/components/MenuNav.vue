@@ -1,30 +1,45 @@
 <template>
 	<div class="wrapper">
 		<div class="menu-content">
-			<div class="menuList" v-for="(icon, i) in menuLists" :key="i">
-				<div class="menuContent">
-					<IconFont
-						class="menuIcon"
-						style="color: red; font-size: 0.55rem"
-						:iconName="icon.iconName"
-					/>
+			<div
+				class="menuList"
+				v-for="({ iconUrl, id, name }, i) in icons"
+				:key="id"
+			>
+				<div class="menuContent" :style="{ zIndex: 100 - i }">
+					<div
+						class="menuImg"
+						:style="`background-image: url(${iconUrl})`"
+					></div>
 				</div>
-				<span class="list-label">{{ icon.label }}</span>
+				<span class="list-label">{{ name }}</span>
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
-import IconFont from "@/components/IconFont.vue";
+import { GET_GRAGON_BALL } from "@/axios";
+import { onMounted, ref } from "vue";
 
 export default {
 	name: "MenuNav",
-	components: {
-		IconFont,
-	},
 	props: {
 		menuLists: Array,
+	},
+	setup() {
+		const icons = ref([]);
+
+		const updateIcons = ({ data }) => {
+			icons.value = data;
+		};
+
+		onMounted(async () => {
+			console.log(1111);
+			await GET_GRAGON_BALL("", updateIcons);
+		});
+
+		return { icons };
 	},
 };
 </script>
@@ -33,7 +48,7 @@ export default {
 .wrapper {
 	max-width: 100%;
 	overflow-x: scroll;
-    overflow-y: hidden;
+	overflow-y: hidden;
 	-webkit-overflow-scrolling: touch !important;
 	&::-webkit-scrollbar {
 		display: none !important;
@@ -56,13 +71,17 @@ export default {
 			margin-right: 0.4rem;
 			flex: none;
 			.menuContent {
-				background-color: pink;
 				width: 1rem;
 				height: 1rem;
-				display: flex;
-				justify-content: center;
-				align-items: center;
 				border-radius: 50%;
+				overflow: hidden;
+				background-color: pink;
+				.menuImg {
+					height: 100%;
+					background-size: cover;
+					filter: drop-shadow(1rem 0px 0px red);
+					transform: translateX(-1rem);
+				}
 			}
 			.list-label {
 				font-size: 0.25rem;
