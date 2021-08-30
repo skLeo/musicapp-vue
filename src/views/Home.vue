@@ -1,6 +1,6 @@
 <template>
-	<TopNav />
-	<SwiperNav />
+  <TopNav />
+  <SwiperNav />
 </template>
 
 <script>
@@ -9,10 +9,10 @@ import TopNav from "@/components/TopNav.vue";
 import SwiperNav from "@/components/SwiperNav.vue";
 
 export default {
-	name: "Home",
-	components: {
-		TopNav,
-		SwiperNav,
-	},
+  name: "Home",
+  components: {
+    TopNav,
+    SwiperNav,
+  },
 };
 </script>

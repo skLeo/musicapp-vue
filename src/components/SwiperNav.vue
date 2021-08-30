@@ -1,57 +1,53 @@
 <template>
-	<Swiper
-		:slides-per-view="1"
-		autoplay
-        :pagination="{ clickable: true }"
-	>
-		<SwiperSlide v-for="banner in imgs" :key="banner.bannerId">
-            <img :src="banner.pic" />
-        </SwiperSlide>
-	</Swiper>
+  <Swiper :slides-per-view="1" autoplay :pagination="{ clickable: true }">
+    <SwiperSlide v-for="banner in imgs" :key="banner.bannerId">
+      <img :src="banner.pic" />
+    </SwiperSlide>
+  </Swiper>
 </template>
 
 <script>
-import { onMounted, ref } from 'vue';
+import { onMounted, ref } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import SwiperCore, { Autoplay, Pagination } from "swiper";
-import {getBanner} from '@/https';
+import { getBanner } from "@/https";
 
 import "swiper/swiper.less";
-import 'swiper/components/pagination/pagination.less';
+import "swiper/components/pagination/pagination.less";
 
 SwiperCore.use([Autoplay, Pagination]);
 
 export default {
-	name: "SwiperNav",
-	components: {
-		Swiper,
-		SwiperSlide,
-	},
-    setup() {
-        const imgs = ref([]);
-        
-        onMounted(async () => {
-            const {data} = await getBanner(2);
+  name: "SwiperNav",
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
+  setup() {
+    const imgs = ref([]);
 
-            if (data.code === 200) {
-                imgs.value = data.banners;
-            }
-        });
+    onMounted(async () => {
+      const { data } = await getBanner(2);
 
-        return {imgs};
-    }
+      if (data.code === 200) {
+        imgs.value = data.banners;
+      }
+    });
+
+    return { imgs };
+  },
 };
 </script>
 
 <style lang="less" scoped>
 .swiper-container {
-    border-radius: 0.1rem;
-	img {
-        display: block;
-        width: 100%;
-    }
-    /deep/ .swiper-pagination-bullet-active {
-        background: grey;
-    }
+  border-radius: 0.1rem;
+  img {
+    display: block;
+    width: 100%;
+  }
+  /deep/ .swiper-pagination-bullet-active {
+    background: grey;
+  }
 }
 </style>
