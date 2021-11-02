@@ -20,7 +20,9 @@ export default {
 		MenuNav,
 		RecommendList,
 	},
-	setup() {},
+	setup() {
+	  console.log('test play.js')
+	},
 };
 </script>
 
